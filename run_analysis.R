@@ -36,5 +36,11 @@ dtt <- rbind(cbind(test.subject,test.label,test.set),cbind(train.subject,train.l
 
       dtt.means <- aggregate(dtt.ms[,3:ncol(dtt.ms)],by=list(subject=dtt.ms[,1],label=dttl.ms[,2]),mean)
       
+## Output TidyData
+
+write.table(format(dtt.means, scientific=T), "TidyData.txt",
++             row.names=F, col.names=F, quote=2)
+
+
  
       
