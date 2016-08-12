@@ -23,23 +23,24 @@ dtt <- rbind(cbind(test.subject,test.label,test.set),cbind(train.subject,train.l
    
 	activityNames <- read.table("activity_labels.txt")
     dtt.ms[,2] <- activityNames[dtt.ms[,2], 2]
+ 
 
 ## Step 4: Appropriately labels the data set with descriptive variable names.
 
 	colnames(dtt)[1]<-"Subject"
-	colnames(dtt)[2]<-"Activity"
+	colnames(dtt)[2]<-"Activity"  
+	## colnames(dtt[3:ncol(dtt)])<- features[idxFeatures,2]
 	## newNames <- c("Subject","Activity",features$fName[idxFeatures]) It's printing the index instead of names
 	colnames(dtt.ms)[1]<-"Subject"
 	colnames(dtt.ms)[2]<-"Activity"
 	
 ## Step 5: From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
-      dtt.means <- aggregate(dtt.ms[,3:ncol(dtt.ms)],by=list(subject=dtt.ms[,1],label=dttl.ms[,2]),mean)
+      dtt.means <- aggregate(dtt.ms[,3:ncol(dtt.ms)],by=list(subject=dtt.ms[,1],label=dtt.ms[,2]),mean)
       
 ## Output TidyData
 
-write.table(format(dtt.means, scientific=T), "TidyData.txt",
-+             row.names=F, col.names=F, quote=2)
+write.table(dtt.means, "TidyData.txt", sep=" ", eol="\n", na="NA",       row.names=FALSE, col.names=TRUE, quote=2)
 
 
  

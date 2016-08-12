@@ -1,9 +1,9 @@
 Columns in the file
 
-Subject                  
+subject                  
     Subject number         1-30 .Unique identifier assigned to each subject
 
-Activity                   
+label                   
     Activity name          "LAYING" "SITTING" "STANDING" "WALKING" "WALKING_DOWNSTAIRS" "WALKING_UPSTAIRS"
                            
 V1.2   
@@ -136,11 +136,7 @@ V540
 	fBodyBodyGyroMag-std()      
 V541 
 	fBodyBodyGyroJerkMag-mean()
-
-	fBodyBodyGyroJerkMag-std() 
 	
-	
-  
 
 Data
 
